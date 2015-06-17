@@ -1,18 +1,20 @@
 Rails.application.routes.draw do
   
 
-  get 'items/index'
+  # get 'items/index'
 
-  get 'items/new'
+  # get 'items/new'
 
-  get 'items/create'
+  # get 'items/create'
 
-  get 'items/show'
+  # get 'items/show'
 
-  get 'items/destroy'
+  # get 'items/destroy'
 
-  get 'items/create'
+  # get 'items/create'
+resource :items
 
+post '/items' => 'items#create'
 get 'welcome/index'
 
 devise_for :users

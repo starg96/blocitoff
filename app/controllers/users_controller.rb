@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
-# put instance variable for users#show here
+  	@user = User.find(params[:id])
+	@items = @user.items
   end
 end

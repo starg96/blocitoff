@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-  	@items = Item.all
+  	@items = Items.all
   end
 
   def new
@@ -8,13 +8,14 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    @item = Items.find(params[:id])
   end
   
   def create
-  	@item = Item.new(params.require(:item).permit(:name))
+  #  @user = User.find(params[:user_id])
+  	@item = current_user.items.build(params.require(:item).permit(:name))
     if @item.save
-       redirect_to @item, notice: "item was saved successfully."
+       redirect_to items_path(@item), notice: "item was saved successfully."
      else
        flash[:error] = "Error creating item. Please try again."
        render :new
