@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # get 'items/destroy'
 
   # get 'items/create'
-resource :items
+ resources :items
 
 post '/items' => 'items#create'
 get 'welcome/index'
@@ -20,7 +20,7 @@ get 'welcome/index'
 devise_for :users
 
 resources :users, only: :show do #get 'users_controller/show'
-	resources :item, only: :create
+	resources :items, only: :create
 end
 
 root to: 'welcome#index'
