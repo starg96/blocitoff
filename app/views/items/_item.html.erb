@@ -1,7 +1,5 @@
 <li>
 	<%= item.name %>
-	<%= days_left %>
 	<%= link_to "Item Done", item, method: :delete, class: 'glyphicon glyphicon-ok' %>
-
-
+	<%= item.days_left.to_s + " Days left to complete" %>
 </li>
